@@ -1,20 +1,217 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="container mt-5 justify-content-center">
+  <!-- <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Original</th>
+        <th scope="col">Pipe</th>
+        <th scope="col">Resultado</th>
+        <th scope="col">Obs</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{varString}}</td>
+        <td>uppercase</td>
+        <td>{{varString | uppercase}}</td>
+        <td>Pasa todo a may.</td>
+      <tr>
+        <td>{{varString}}</td>
+        <td>lowercase</td>
+        <td>{{varString | lowercase}}</td>
+        <td>Pasa todo a min.</td>
+      </tr>
+      <tr>
+        <td>{{varString}}</td>
+        <td>slice : start [: end]  (:3)</td>
+        <td>{{varString | slice :3}}</td>
+        <td>Corta desde y hasta, pero el hasta no es inclusivo</td>
+      </tr>
+      <tr>
+        <td>{{varString}}</td>
+        <td>slice : start [: end]  (:0 :3)</td>
+        <td>{{varString | slice :0 :3}}</td>
+        <td>Corta desde y hasta, pero el hasta no es inclusivo</td>
+      </tr>
+      <tr>
+        <td>{{arreglo}}</td>
+        <td>slice : start [: end]  (:1 :3)</td>
+        <td>{{arreglo | slice :1 :3}}</td>
+        <td>Corta desde y hasta, pero el hasta no es inclusivo</td>
+      </tr>
+      <tr>
+        <td>{{numero}}</td>
+        <td>number:'3.1-3'</td>
+        <td>{{numero | number:'3.1-3'}}</td>
+        <td>El primer valor es la cantidad MINIMA de digitos enteros. El segundo cant. min. de decimales y el ùltimo es
+          la cant. max. de decimales</td>
+      </tr>
+      <tr>
+        <td>{{numero2}}</td>
+        <td>number:'3.1'</td>
+        <td>{{numero2 | number:'3.1'}}</td>
+        <td>El primer valor es la cantidad MINIMA de digitos enteros. El segundo cant. min. de decimales y el ùltimo es
+          la cant. max. de decimales</td>
+      </tr>
+      <tr>
+        <td>{{numero3}}</td>
+        <td>percent</td>
+        <td>{{numero3 | percent}}</td>
+        <td>Multiplica por 100</td>
+      </tr>
+      <tr>
+        <td>{{numero3}}</td>
+        <td>percent: '2.0-2'</td>
+        <td>{{numero3 | percent: '2.0-2'}}</td>
+        <td>Multip. por cien y arma el formato con digitos ent. minimos, parte dec. min y max</td>
+      </tr>
+      <tr>
+        <td>{{guita}}</td>
+        <td>currency :'$' :true :'2.0-3'</td>
+        <td>{{guita | currency:'$' :true :'2.0-3'}}</td>
+        <td>value | currency :codigo :verdadero o falso :formato</td>
+      </tr>
+      <tr>
+        <td>{{guita}}</td>
+        <td>currency :'EUR' :true :'2.0-3'</td>
+        <td>{{guita | currency:'EUR' :true :'2.0-3'}}</td>
+        <td>value | currency :codigo :verdadero o falso :formato</td>
+      </tr>
+      <tr>
+        <td>{{guita}}</td>
+        <td>currency :'EUR' :false :'2.0-3'</td>
+        <td>{{guita | currency:'EUR' :false :'2.0-3'}}</td>
+        <td>value | currency :codigo :verdadero o falso :formato</td>
+      </tr>
+      <tr>
+        <td>{{fecha}}</td>
+        <td>date</td>
+        <td>{{fecha | date}}</td>
+        <td>date (string con formato fecha) | date [:format] (en format hay varias opciones: short M/d/yy, medium, long,
+          shortDate, fullDate, personalizados)
+          ver detalles en http://angular.io/api/common/DatePipe
+        </td>
+      </tr>
+      <tr>
+        <td>{{fecha}}</td>
+        <td>date :'short'</td>
+        <td>{{fecha | date:'short'}}</td>
+        <td>date (string con formato fecha) | date [:format] (en format hay varias opciones: short M/d/yy, medium, long,
+          shortDate, fullDate, personalizados)
+          ver detalles en http://angular.io/api/common/DatePipe
+        </td>
+      </tr>
+      <tr>
+        <td>{{fecha}}</td>
+        <td>date :'medium'</td>
+        <td>{{fecha | date:'medium'}}</td>
+        <td>date (string con formato fecha) | date [:format] (en format hay varias opciones: short M/d/yy, medium, long,
+          shortDate, fullDate, personalizados)
+          ver detalles en http://angular.io/api/common/DatePipe
+        </td>
+      </tr>
+      <tr>
+        <td>{{fecha}}</td>
+        <td>date :'long'</td>
+        <td>{{fecha | date:'long'}}</td>
+        <td>date (string con formato fecha) | date [:format] (en format hay varias opciones: short M/d/yy, medium, long,
+          shortDate, fullDate, personalizados)
+          ver detalles en http://angular.io/api/common/DatePipe
+        </td>
+      </tr>
+      <tr>
+        <td>{{fecha}}</td>
+        <td>date :'fullDate'</td>
+        <td>{{fecha | date:'fullDate'}}</td>
+        <td>date (string con formato fecha) | date [:format] (en format hay varias opciones: short M/d/yy, medium, long,
+          shortDate, fullDate, personalizados)
+          ver detalles en http://angular.io/api/common/DatePipe
+        </td>
+      </tr>
+      <tr>
+        <td>{{fecha}}</td>
+        <td>date:'d MMMM yyyy'</td>
+        <td>{{fecha | date:'d MMMM yyyy'}}</td>
+        <td>date (string con formato fecha) | date [:format] (en format hay varias opciones: short M/d/yy, medium, long,
+          shortDate, fullDate, personalizados)
+          ver detalles en http://angular.io/api/common/DatePipe
+        </td>
+      </tr>
+      <tr>
+        <td>{{texto2}}</td>
+        <td>capitalizado</td>
+        <td>{{texto2 | capitalizado}}</td>
+        <td>Personalizado
+        </td>
+      </tr>
 
+    </tbody>
+  </table> -->
+
+
+  <!-- NgIf ------------------------------------------------------------------------------------------- -->
+  <button class="btn btn-primary" (click)="cambiador()">El botón</button>
+  <p *ngIf="booleana">Viva la pepa carajo!</p>
+  <hr>
+
+  <!-- NgStyle ---------------------------------------------------------------------------------------- -->
+  <p [ngStyle]="{'font-size.px': estilo }">Esto es un texto escrito en el template para probar ngStyle</p>
+  {{estilo}}<br><br>
+  <button class="btn btn-primary" (click)="aumentador()">Aumentar 5</button>
+  &nbsp;
+  <button class="btn btn-primary" (click)="achicador()">Disminuir 5</button>
+  
+  <!-- NgStyle con operador ternario ------------------------------------------------------------------ -->
+  <p [ngStyle]="booleana ? {'color': 'green'} : {'color': 'red'}">ajaaaa</p>
+  <hr>
+  <br>
+
+  <!-- NgClass ---------------------------------------------------------------------------------------- -->
+  <div class="alert" [ngClass]="{'alert-success': booleana, 'alert-warning' : !booleana}">
+    NgClass: EL VALOR ES {{booleana}} :O
+  </div>
+
+  <!-- NgClass con operador ternario ------------------------------------------------------------------ -->
+  <div class="alert" [ngClass]="booleana ? 'alert-success' : 'alert-warning'">
+    NgClass: EL VALOR ES {{booleana}}
+  </div>
+  <hr>
+  <br>
+
+  <!-- NgSwitch --------------------------------------------------------------------------------------- -->
+  <div [ngSwitch]="tipo">
+    <div *ngSwitchCase="'info'">
+      <p>Info</p>
+    </div>
+    <div *ngSwitchCase="'success'">
+      <p>El valor ahora es: Success</p>
+    </div>
+    <div *ngSwitchCase="'danger'">
+      <p>Danger</p>
+    </div>
+    <div *ngSwitchCase="'warning'">
+      <p>Warning</p>
+    </div>
+    <div *ngSwitchDefault>
+      <p>Ninguno</p>
+    </div>
+   </div>
+
+   <!-- <div [ngSwitch]="tipo">
+    <div *ngFor="let t of tipos">
+      <div *ngSwitchCase="t" [ngClass]="
+{
+'alert-success': t == 'success',
+'alert-warning' :  t == 'warning',
+'alert-info' :  t == 'info'
+}
+">
+      {{t}}
+      </div>
+      <div *ngSwitchDefault>
+        hola
+      </div>
+    </div>
+  </div> -->
+
+
+</div>
